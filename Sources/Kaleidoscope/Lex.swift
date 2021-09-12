@@ -1,4 +1,4 @@
-enum Token {
+enum Token: Equatable, Hashable {
     case eof, def, extern
     case identifier(String)
     case number(Double)
@@ -78,10 +78,4 @@ func lex(_ source: String) -> [Token] {
     }
     
     return tokens
-}
-
-print("> ", terminator: "")
-while let line = readLine(), line != "quit" {
-    print(lex(line))
-    print("> ", terminator: "")
 }
