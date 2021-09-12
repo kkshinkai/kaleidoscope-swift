@@ -15,5 +15,6 @@ let package = Package(
         .target(name: "Kaleidoscope", dependencies: []),
 
         .target(name: "Chapter1", dependencies: []),
+        .target(name: "Chapter2", dependencies: []),
     ]
 )
