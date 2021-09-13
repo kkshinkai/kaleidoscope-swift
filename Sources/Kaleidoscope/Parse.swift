@@ -202,6 +202,9 @@ func handleExtern(_ stream: inout PeekableIterator<Token>) {
 
 func parseTopLevelExpression(_ stream: inout PeekableIterator<Token>) -> Function? {
     if let expression = parseExpression(&stream) {
+        // ----
+        generateIR(for: expression)?.dump()
+        // ----
         let prototype = Prototype(name: "", parameters: [])
         return Function(prototype: prototype, body: expression)
     } else {
@@ -234,8 +237,6 @@ func parseAll(_ stream: inout PeekableIterator<Token>) {
             handleTopLevelExpression(&stream)
         }
     }
-    
-    return
 }
 
 func parse(_ tokens: [Token]) {
